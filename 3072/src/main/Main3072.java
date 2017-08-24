@@ -8,6 +8,8 @@ public class Main3072 {
 		Window.init();
 		Thread update = new Thread(new UpdateLoop(), "UL");
 		update.start();
+		
+
 //		Game.run();
 	}
 }

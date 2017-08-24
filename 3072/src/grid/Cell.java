@@ -3,11 +3,11 @@ package grid;
 public class Cell {
 	private int q, r, s, n;
 
-	public Cell(int q, int r, int s, int n) {
+	public Cell(int q, int r, int s) {
 		this.q = q;
 		this.r = r;
 		this.s = s;
-		this.n = n;
+		this.n = 0;
 	}
 
 	public int getN() {
@@ -28,6 +28,11 @@ public class Cell {
 
 	public int getS() {
 		return s;
+	}
+
+	@Override
+	public String toString() {
+		return n+"";
 	}
 	
 	

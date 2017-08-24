@@ -12,7 +12,10 @@ import java.awt.event.WindowListener;
 
 import javax.swing.event.MouseInputListener;
 
-public class Input implements KeyListener, MouseInputListener, MouseWheelListener, ComponentListener, WindowListener {
+import data.GameData;
+import main.Game;
+
+public class Input implements KeyListener, MouseInputListener, MouseWheelListener, ComponentListener, WindowListener, GameData {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		try {
@@ -27,10 +30,27 @@ public class Input implements KeyListener, MouseInputListener, MouseWheelListene
 	public void keyReleased(KeyEvent e) {
 		try {
 			switch (e.getKeyCode()) {
-
+			case (KeyEvent.VK_W):
+				Game.move(U);
+				break;
+			case (KeyEvent.VK_E):
+				Game.move(UR);
+				break;
+			case (KeyEvent.VK_D):
+				Game.move(DR);
+				break;
+			case (KeyEvent.VK_S):
+				Game.move(D);
+				break;
+			case (KeyEvent.VK_A):
+				Game.move(DL);
+				break;
+			case (KeyEvent.VK_Q):
+				Game.move(UL);
+				break;
 			}
 		}
-		catch (Exception e1) {}
+		catch (Exception e1) {e1.printStackTrace();}
 	}
 
 	@Override

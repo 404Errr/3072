@@ -37,9 +37,14 @@ public class Renderer extends JPanel implements GameData, ColorData, GraphicsDat
 					if (q+r+s==0) {
 						double x = (1.5*q)*CELL_SIZE;
 						double y = (0.86602540378*q+1.73205080757*r)*CELL_SIZE;
-						Color color = Color.BLACK;
-						boolean hasN = Game.grid.get(q, r, s).getN()!=0;
-						drawHex((int)x+Window.centerX(), (int)y+Window.centerY(), CELL_SIZE, 2, color, hasN);
+						if (Game.grid.getN(q, r, s)!=0) {
+							Color color = ColorData.getColor(Game.grid.getN(q, r, s)); 
+							drawHex((int)x+Window.centerX(), (int)y+Window.centerY(), CELL_SIZE, 0, color, true);
+							g.setColor(Color.BLACK);
+							g.drawString(Game.grid.getN(q, r, s)+"", (int)x+Window.centerX(), (int)y+Window.centerY());
+						}
+						drawHex((int)x+Window.centerX(), (int)y+Window.centerY(), CELL_SIZE, 2, Color.BLACK, false);
+//						g.drawString(q+","+r+","+s, (int)x+Window.centerX(), (int)y+Window.centerY());
 					}
 				}
 			}
