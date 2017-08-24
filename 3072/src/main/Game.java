@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import data.GameData;
 import grid.Cell;
@@ -23,32 +24,30 @@ public class Game implements GameData {
 	}
 	
 	public static void move(int dir) {
-		int dQ = 0, dR = 0, dS = 0;
 		switch (dir) {
 		case U:
-			dR = -1;
-			dS = 1;
 			break;
 		case UR:
-			dQ = 1;
-			dR = -1;
 			break;
 		case DR:
-			dQ = 1;
-			dS = -1;
 			break;
 		case D:
-			dR = 1;
-			dS = -1;
 			break;
 		case DL:
-			dQ = -1;
-			dR = 1;
 			break;
 		case UL:
-			dQ = -1;
-			dS = 1;
 			break;
+		}
+		
+		for (int q = -grid.size()/2;q<=grid.size()/2;q++) {
+			List<Cell> col = new ArrayList<>();
+			for (int r = -grid.size()/2;r<=grid.size()/2;r++) {
+				for (int s = grid.size()/2;s>=-grid.size()/2;s--) {
+					if (q+r+s==0) {
+						//make list remove null blah blah combine
+					}
+				}
+			}
 		}
 		
 		addRandom();

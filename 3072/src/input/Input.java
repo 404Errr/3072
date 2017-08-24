@@ -20,16 +20,6 @@ public class Input implements KeyListener, MouseInputListener, MouseWheelListene
 	public void keyPressed(KeyEvent e) {
 		try {
 			switch (e.getKeyCode()) {
-			
-			}
-		}
-		catch (Exception e1) {}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		try {
-			switch (e.getKeyCode()) {
 			case (KeyEvent.VK_W):
 				Game.move(U);
 				break;
@@ -48,6 +38,19 @@ public class Input implements KeyListener, MouseInputListener, MouseWheelListene
 			case (KeyEvent.VK_Q):
 				Game.move(UL);
 				break;
+			case (KeyEvent.VK_R):
+				Game.grid.rotate(1);
+				break;
+			}
+		}
+		catch (Exception e1) {e1.printStackTrace();}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		try {
+			switch (e.getKeyCode()) {
+
 			}
 		}
 		catch (Exception e1) {e1.printStackTrace();}

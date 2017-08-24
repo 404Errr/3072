@@ -2,7 +2,6 @@ package grid;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Grid {
 	public Cell[][][] grid;
@@ -37,8 +36,24 @@ public class Grid {
 		return false;
 	}
 	
-	public void rotate() {
-		
+	public void rotate(int rotations) {
+		for (int rots = 0;rots<rotations;rots++) {
+			int[][][] ns = new int[size()][size()][size()];
+			for (int q = -size()/2;q<=size()/2;q++) {
+				for (int r = -size()/2;r<=size()/2;r++) {
+					for (int s = -size()/2;s<=size()/2;s++) {
+						if (q+r+s==0) ns[c-s][c-r][c-q] = getN(q, r, s);
+					}
+				}
+			}
+			for (int q = -size()/2;q<=size()/2;q++) {
+				for (int r = -size()/2;r<=size()/2;r++) {
+					for (int s = -size()/2;s<=size()/2;s++) {
+						if (q+r+s==0) set(-s, -q, -r, ns[c-s][c-r][c-q]);
+					}
+				}
+			}
+		}
 	}
 	
 	public void set(int q, int r, int s, int n) {
