@@ -2,6 +2,7 @@ package graphics;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
@@ -41,10 +42,11 @@ public class Renderer extends JPanel implements GameData, ColorData, GraphicsDat
 							Color color = ColorData.getColor(Game.grid.getN(q, r, s)); 
 							drawHex((int)x+Window.centerX(), (int)y+Window.centerY(), CELL_SIZE, 0, color, true);
 							g.setColor(Color.BLACK);
-							g.drawString(Game.grid.getN(q, r, s)+"", (int)x+Window.centerX(), (int)y+Window.centerY());
+							g.setFont(new Font("Helvetica", Font.BOLD, CELL_SIZE*2/3));
+							g.drawString(Game.grid.getN(q, r, s)+"", (int)x+Window.centerX()-CELL_SIZE/2, (int)y+Window.centerY()+CELL_SIZE/2);
 						}
 						drawHex((int)x+Window.centerX(), (int)y+Window.centerY(), CELL_SIZE, 2, Color.BLACK, false);
-						g.drawString(q+","+r+","+s, (int)x+Window.centerX(), (int)y+Window.centerY());
+//						g.drawString(q+","+r+","+s, (int)x+Window.centerX(), (int)y+Window.centerY());
 					}
 				}
 			}
